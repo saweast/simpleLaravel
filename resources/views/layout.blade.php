@@ -14,6 +14,7 @@
                         <li><a href="/">Main</a></li>
 
                         @if (session('auth') == 'Authorized')
+                            <li><a href="/create">Create user</a></li>
                             <li><a href="/exit">Logout</a></li>
                         @else
                             <li><a href="/enter">Login</a></li>

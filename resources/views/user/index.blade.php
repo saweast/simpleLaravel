@@ -9,7 +9,7 @@
                     <h1>Hello, guest!</h1>
                 @endif
             </div>
-            <div class="col-md-9 col-md-offset-1">
+            <div class="col-md-8 col-md-offset-2">
                 @if (session('auth')=='Authorized')
                     <ul class="list-group">
                         @foreach ($users as $user)

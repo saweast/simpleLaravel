@@ -45,6 +45,7 @@ class UserController extends Controller
         return view('user.edit', ['user'=>$user]);
     }
     public function editUser(Request $request, Users $user) {
+//        return $this->validator($request);
         $user->update($request->all());
         return back();
     }
