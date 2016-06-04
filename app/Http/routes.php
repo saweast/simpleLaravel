@@ -17,6 +17,8 @@ Route::post('create/makeNew', 'UserController@makeNew');
 Route::get('user/{id}', 'UserController@edit');
 Route::put('user/{user}/edit', 'UserController@editUser');
 Route::delete('user/{user}/destroy', 'UserController@destroy');
+Route::get('/enter', 'LogController@enter');
+Route::post('/log', 'LogController@login');
 
 Route::auth();
 

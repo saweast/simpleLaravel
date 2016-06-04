@@ -12,8 +12,8 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
                         <li><a href="/">Main</a></li>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/create">Create</a></li>
+                        <li><a href="/enter">Login</a></li>
+                        <li><a href="/create">Register</a></li>
                     </ul>
                 </div>
             </nav>

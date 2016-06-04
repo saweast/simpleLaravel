@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Users;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -48,14 +49,16 @@ class UserController extends Controller
     }
     public function destroy(Request $request, Users $user) {
         Users::all()->find($user)->delete();
-        Redirect::route('user.index');
+
+        return view('user.index', ['users'=> Users::all()]);
     }
     public function makeNew(Request $request)
     {
         Users::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => bcrypt($request['password']),
+//            'password' => bcrypt($request['password']),
+            'password' => $request['password'],
         ]);
         return back();
     }
