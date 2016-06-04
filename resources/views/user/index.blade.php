@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h1>You are welcome!</h1>
+                <h1>You are welcome! {{ session('auth') }}</h1>
             </div>
             <div class="col-md-9 col-md-offset-1">
                 <ul class="list-group">

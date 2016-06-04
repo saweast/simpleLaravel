@@ -36,8 +36,9 @@ class UserController extends Controller
         return view('user.create');
     }
     public function show() {
+        $auth = session('key');
         $users = Users::all();
-        return view('user.index', ["users"=>$users]);
+        return view('user.index', ["users"=>$users, "auth"=>$auth]);
     }
     public function edit($id) {
         $user = Users::all()->find($id);

@@ -18,13 +18,21 @@ class LogController extends Controller
         foreach ($users as $user) {
             if ($user->email == $request->email) {
                 if ($user->password == $request->password) {
-                    return view('user.index', compact('users'));
+                    $request->session()->put('auth', 'Authorized');
+                    $auth = $request->session()->get('auth');
+                    return view('user.index', ['users'=>$users, 'auth'=>$auth]);
                 }
             }
-            return 'FOO';
+            $request->session()->forget('key');
+            $request->session()->flush();
+            return view('user.login');
         }
-
         return view('user.login',[]);
+    }
+    public function logout(Request $request) {
+        $request->session()->forget('key');
+        $request->session()->flush();
+        return view('user.login');
     }
 
 }
