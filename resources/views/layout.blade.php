@@ -12,9 +12,14 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
                         <li><a href="/">Main</a></li>
-                        <li><a href="/enter">Login</a></li>
-                        <li><a href="/exit">Logout</a></li>
-                        <li><a href="/create">Register</a></li>
+
+                        @if (session('auth') == 'Authorized')
+                            <li><a href="/exit">Logout</a></li>
+                        @else
+                            <li><a href="/enter">Login</a></li>
+                            <li><a href="/create">Register</a></li>
+                        @endif
+
                     </ul>
                 </div>
             </nav>

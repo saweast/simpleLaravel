@@ -1,4 +1,9 @@
 @extends('layout')
+<style>
+    .delete-f{float: right;
+    position: relative;
+    top: -48px;}
+</style>
 @section('content')
     <div class="container">
         <div class="row">
@@ -36,7 +41,7 @@
                 <form action="/user/{{$user->id}}/destroy" method="POST">
                     {{ method_field('DELETE') }}
                     {!! csrf_field() !!}
-                    <div class="form-group">
+                    <div class="form-group delete-f" >
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 </form>

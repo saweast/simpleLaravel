@@ -23,14 +23,14 @@ class LogController extends Controller
                     return view('user.index', ['users'=>$users, 'auth'=>$auth]);
                 }
             }
-            $request->session()->forget('key');
+            $request->session()->forget('auth');
             $request->session()->flush();
             return view('user.login');
         }
         return view('user.login',[]);
     }
     public function logout(Request $request) {
-        $request->session()->forget('key');
+        $request->session()->forget('auth');
         $request->session()->flush();
         return view('user.login');
     }

@@ -36,7 +36,7 @@ class UserController extends Controller
         return view('user.create');
     }
     public function show() {
-        $auth = session('key');
+        $auth = session('auth');
         $users = Users::all();
         return view('user.index', ["users"=>$users, "auth"=>$auth]);
     }
@@ -50,8 +50,9 @@ class UserController extends Controller
     }
     public function destroy(Request $request, Users $user) {
         Users::all()->find($user)->delete();
-
-        return view('user.index', ['users'=> Users::all()]);
+        $auth = session('auth');
+        $users = Users::all();
+        return view('user.index', ["users"=>$users, "auth"=>$auth]);
     }
     public function makeNew(Request $request)
     {
